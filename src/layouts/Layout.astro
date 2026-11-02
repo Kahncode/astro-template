@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+}
+
+const {
+	title = "Astro Template", // TODO: site title
+	description = "Astro + React + Tailwind v4 starter deployed on Cloudflare.", // TODO: site description
+	ogImage, // TODO: pass a raster 1200x630 image (social crawlers do not render SVG)
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = ogImage ? new URL(ogImage, Astro.site) : undefined;
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		{ogImageURL && <meta property="og:image" content={ogImageURL} />}
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content={ogImageURL ? "summary_large_image" : "summary"} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+
+		<title>{title}</title>
+	</head>
+	<body class="font-sans">
+		<slot />
+	</body>
+</html>

@@ -1,0 +1,13 @@
+{
+	"compatibility_date": "2026-04-22",
+	"name": "astro-template", // TODO: rename per project
+	// Static site: serve dist/ as Cloudflare static assets (Workers Static Assets).
+	"assets": {
+		"directory": "./dist",
+		// Default is "none" (bare 404, no page). "404-page" serves the nearest 404.html.
+		"not_found_handling": "404-page"
+	},
+	"observability": {
+		"enabled": true
+	}
+}

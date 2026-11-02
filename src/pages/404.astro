@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import { images } from "../assets/images";
+---
+
+<Layout title="404 Page not Found">
+	<Image
+		id="background"
+		src={images.background.src}
+		alt={images.background.alt}
+		loading="eager"
+		fetchpriority="high"
+	/>
+	<main>
+		<a href="https://astro.build">
+			<Image src={images.astroLogo.src} width={115} height={48} alt={images.astroLogo.alt} />
+		</a>
+		<h1>404 Page not Found</h1>
+		<a class="button" href="/">Back to home</a>
+	</main>
+</Layout>
+
+<style>
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		filter: blur(100px);
+	}
+
+	main {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		padding: 16px;
+		text-align: center;
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+	}
+
+	h1 {
+		margin: 0.25em 0 0;
+		font-size: 22px;
+		font-weight: bold;
+		color: #111827;
+	}
+
+	.button {
+		padding: 10px 12px;
+		color: white;
+		text-decoration: none;
+		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		box-shadow:
+			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
+		border-radius: 10px;
+		transition: color 0.2s;
+	}
+
+	.button:hover {
+		color: rgb(230, 230, 230);
+		box-shadow: none;
+	}
+
+	@media screen and (max-width: 768px) {
+		.button {
+			padding: 14px 18px;
+		}
+	}
+</style>

@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Tailwind v4: no tailwind.config.js — design tokens live in @theme.
+   Each --color-* token becomes utilities (bg-brand, text-ink, border-border, ...). */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* TODO: replace with the project's palette */
+  --color-brand: #4f46e5;
+  --color-brand-dark: #4338ca;
+  --color-paper: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-ink: #111114;
+  --color-ink-secondary: #5b5b66;
+  --color-border: rgb(0 0 0 / 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
