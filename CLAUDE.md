@@ -12,6 +12,7 @@ Astro static site template: Astro 6 + React islands + Tailwind CSS v4 + TypeScri
 
 ```bash
 npm run dev        # dev server at localhost:4321 (LAN-accessible)
+npm run check      # astro check (TypeScript + Astro diagnostics)
 npm run build      # production build -> ./dist/
 npm run preview    # build + `wrangler dev` (closest to production)
 npm test           # Playwright (starts dev server automatically)
@@ -84,7 +85,7 @@ import { images } from "../assets/images";
 1. **Secrets:** never commit passwords, API keys, tokens or `.env` files. Verify before any commit.
 2. **Deploying:** never run `npm run deploy` or push to `main` (triggers a deployment) without explicit confirmation ("yes, deploy this").
 3. **Branches:** never work on `main`. Use `feat/<name>`, `fix/<name>`, `docs/<name>`, `refactor/<name>`.
-4. **Quality gates:** `npm run build` must pass before committing. No file > 300 lines, no function > 50 lines.
+4. **Quality gates:** `npm run check` and `npm run build` must pass before committing. No file > 300 lines, no function > 50 lines.
 5. **Commits:** don't auto-commit.
 
 ## Do / Don't
